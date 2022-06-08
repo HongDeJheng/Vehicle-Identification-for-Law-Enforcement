@@ -34,13 +34,14 @@ python train.py --img 416 --batch 32 --epochs 300 --data <custom<50/60/70/80>.ya
 ```shell
 python train.py --img 416 --batch 32 --epochs 300 --data <custom<50/60/70/80>.yaml> 
 --weights yolov5s.pt --device 0 --workers 0 --save-period 50 --name <train_<50/60/70/80>_mixup>
+--hyp hyp_custom_mixup.yaml
 ```
 
 #### Adam
 ```shell
 python train.py --img 416 --batch 32 --epochs 300 --data <custom<50/60/70/80>.yaml> 
 --weights yolov5s.pt --device 0 --workers 0 --save-period 50 --name <train_<50/60/70/80>_Adam> 
---hyp hyp_custom_mixup.yaml
+--optimizer Adam
 ```
 
 ## Training images
