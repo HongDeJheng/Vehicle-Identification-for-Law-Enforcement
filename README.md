@@ -70,6 +70,8 @@ python train.py --img 416 --batch 32 --epochs 300 --data <custom<50/60/70/80>.ya
 ![PR](runs/train/train_50/PR_curve.png)
 
 ## Loss and Metrics
+Note: Owing to internet and GPU issue, some of the result only contains around last 100 epochs. However, it's sufficient to show the difference.  
+
 ### train/box_loss
 Mosaic             |  Mosaic + Mixup
 :-----------------:|:-----------------:
