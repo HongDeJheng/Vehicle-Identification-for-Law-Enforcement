@@ -5,6 +5,7 @@
 
 ## Dataset
 Cars dataset by Janathan Krause[1]
+- total 16,185 images
 - cars_annos.mat
 
 ## Models
@@ -69,10 +70,65 @@ python train.py --img 416 --batch 32 --epochs 300 --data <custom<50/60/70/80>.ya
 
 ## Loss and Metrics
 ### train/box_loss
-#### baseline
-![box_loss](results/train_box_loss.png)
-#### mosaic vs mixup
-![box_loss_comparison](results/train_box_loss%20:%20Mosaic%20vs%20Mixup.png)
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/train_box_loss.jpg)  |  ![](results/train_box_loss%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### train/obj_loss
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/train_obj_loss.jpg)  |  ![](results/train_obj_loss%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### train/cls_loss
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/train_cls_loss.jpg)  |  ![](results/train_cls_loss%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### val/box_loss
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/val_box_loss.jpg)  |  ![](results/val_box_loss%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### val/obj_loss
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/val_obj_loss.jpg)  |  ![](results/val_obj_loss%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### val/cls_loss
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/val_cls_loss.jpg)  |  ![](results/val_cls_loss%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### metric/precision
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/precision.jpg)  |  ![](results/precision%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### metric/recall
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/recall.jpg)  |  ![](results/recall%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### metric/mAP_0.5
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/mAP_0.5.jpg)  |  ![](results/mAP_0.5%20:%20Mosaic%20vs%20Mixup.jpg)
+
+### metric/mAP_0.5:0.95
+Mosaic             |  Mosaic + Mixup
+:-----------------:|:-----------------:
+![](results/mAP_0.5:0.95.jpg)  |  ![](results/mAP_0.5:0.95%20:%20Mosaic%20vs%20Mixup.jpg)
+
+## Conclusion
+The data augmentation method Mosaic proposed in Yolov4 strongly increased the prediction accuracy. We can see that with different size of training set (50% / 60% / 70% / 80%), all result in around 90% of accuracy. Also, in this task, the accuracy is good enough since we're aiming to classify a car's **model and year** rather than the **exact posistion** of a car. And all these result has only around 2% difference in accuracy.  
+
+For Mosaic + Mixup, the accuracy is pretty close to Mosaic.
+
+In conclusion, we can use a small dataset with Mosaic to get a good prediction result, it only takes around 3-5 days to reach 90% of accuracy.
+
+## Future Work
+- Collect data for newer model since the current dataset only contains old car (e.g. 2012 Ford)
+- Demo the result by pretrained model with a CCTV-like image or video
 
 ## Reference
 1. [Car dataset by Jonathan Krause](https://ai.stanford.edu/~jkrause/cars/car_dataset.html)
